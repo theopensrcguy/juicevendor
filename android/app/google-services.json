@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "992652071383",
+    "project_id": "juice-vendor",
+    "storage_bucket": "juice-vendor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992652071383:android:8e4de36437567b00bdfb92",
+        "android_client_info": {
+          "package_name": "com.example.juice_vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992652071383-7urrsoib6a2l0iqqd013tqu57m3itsmg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDConqaZ7Lo48m03BfKhrLP3WGQOCVY79s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992652071383-7urrsoib6a2l0iqqd013tqu57m3itsmg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
