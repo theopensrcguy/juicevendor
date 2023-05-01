@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:juice_vendor/screens/login.dart';
-import 'package:juice_vendor/screens/main_page.dart';
+import 'package:juice_vendor/auth/main_page.dart';
 import 'package:sizer/sizer.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

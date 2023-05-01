@@ -2,7 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+
+  final VoidCallback showRegisterPage;
+
+  const Login({Key? key,required this.showRegisterPage}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -11,6 +14,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
 
   Future login() async{
     await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailController.text.trim(), password: _passwordController.text.trim());
@@ -134,26 +138,18 @@ class _LoginState extends State<Login> {
                             children: [
                               const SizedBox(height: 25,),
                               buildEmail(),
-                              const SizedBox(height: 25,),
+                              const SizedBox(height: 15,),
                               buildPassword(),
-                              const SizedBox(height: 10,),
-                              const Text('Not A  Member? Register Now', style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 17,
-                                color: Color(0xffFCA148),
-
-                              )),
-
-                              const SizedBox(height: 20,),
+                              const SizedBox(height: 15,),
 
                            GestureDetector(
                              onTap: () => login(),
                              child: Container(
                                height: 50,
-                               width: 150,
+                               // width: 150,
                                decoration: BoxDecoration(
                                    color: Colors.white,
-                                   borderRadius: BorderRadius.circular(30),
+                                   borderRadius: BorderRadius.circular(10),
                                    gradient: const LinearGradient(
                                      colors: [
                                        Color(0xfff7b858),
@@ -162,13 +158,16 @@ class _LoginState extends State<Login> {
                                    ),
                                ),
                                child: Row(
+                                 mainAxisAlignment: MainAxisAlignment.center,
                                  children: const [
                                    SizedBox(width: 20,),
-                                   Text('LOGIN', style: TextStyle(
-                                     fontWeight: FontWeight.w500,
-                                     fontSize: 17,
-                                     color: Colors.white
-                                   ),),
+                                   Center(
+                                     child: Text('LOGIN', style: TextStyle(
+                                       fontWeight: FontWeight.w500,
+                                       fontSize: 17,
+                                       color: Colors.white
+                                     ),),
+                                   ),
                                    SizedBox(width: 20,),
                                    Icon(Icons.arrow_forward_ios, color: Colors.white,),
 
@@ -176,18 +175,32 @@ class _LoginState extends State<Login> {
                                ),
                              ),
                            ),
-                              const SizedBox(height: 20,),
+                              const SizedBox(height: 10,),
                               Row(
-                                children: const [
-                                  SizedBox(height: 20,),
-                                  Text('Dont have an account?', style: TextStyle(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children:  [
+                                  SizedBox(height: 25,),
+                                  const Text('Dont have an account?', style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 17,
-                                      color: Colors.white
-                                  ),),
-                                  SizedBox(width: 20,),
-                                  Icon(Icons.arrow_forward_ios, color: Colors.white,),
-                                  SizedBox(height: 20,),
+                                      fontSize: 15,
+                                      color: Colors.black
+                                  ),
+                                  ),
+                                  const SizedBox(width: 20,),
+
+                                  GestureDetector(
+                                    onTap: widget.showRegisterPage,
+                                    child: const Text('Register Now', style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Colors.blue
+
+                                    ),
+                                    ),
+                                  ),
+
+                                  const Icon(Icons.arrow_forward_ios, color: Colors.white,),
+                                  const SizedBox(height: 20,),
                                 ],
                               ),
 

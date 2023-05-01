@@ -1,6 +1,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:juice_vendor/auth/auth_page.dart';
 import 'package:juice_vendor/screens/home_page.dart';
 import 'package:juice_vendor/screens/login.dart';
 
@@ -19,9 +20,10 @@ class _MainPageState extends State<MainPage> {
         stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context,snapshot){
           if (snapshot.hasData) {
+
             return HomePage();
           } else{
-            return Login();
+            return AuthPage();
           }
           }
       ),
